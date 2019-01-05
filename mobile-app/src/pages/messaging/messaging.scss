@@ -1,0 +1,51 @@
+page-messaging {
+
+    .neighbour-list{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: #f5f5f5;
+        bottom: 0;
+        position: fixed;
+        left: 0px;
+        overflow: hidden;
+        top: 0px;
+        width: 400px;
+        font-size: 40px;
+    }
+
+    .messages{
+        background-color: #f5f5f5;
+        left: 405px;
+        top: 0px;
+        overflow: hidden;
+        position: fixed;
+        right: 5px;
+        bottom: 0px;
+
+    }
+
+    .neighbour{
+        
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: #f5f5f5;
+        margin: 2px;
+        position: absolute;
+        align-self: center;
+        width: 400px;
+    }
+
+    .card{
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .header{
+        background-color: rgb(85, 182, 247);
+    }
+
+    .msg{
+        background-color: #81b885;
+        max-width: 800px;
+    }
+}
