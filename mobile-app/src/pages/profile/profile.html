@@ -23,17 +23,40 @@
           background: none !important;
           background-color :none !important;"  src="assets/ava.png" class="round-image"></ion-img>
           <h1 style="margin-top: 5px; font-size: 30px; align-self: center">{{username}}</h1>
-          <div (click)="editName()">
-            Edit <ion-icon name="create"></ion-icon>
-          </div>
+          
       </div>
 
-      <ion-list style="margin:10px;">
-        <button ion-button full (click)="goToHouse()">
-          <ion-icon name="home" item-start></ion-icon>
-            Houses
-          </button>
+      <ion-list>
+
+        <ion-item>
+          <ion-icon name="mail" item-start></ion-icon>
+          Email
+          <b item-end>{{mail}}</b>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="transgender" item-start></ion-icon>
+          Gender
+          <b item-end>{{gender}}</b>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="call" item-start></ion-icon>
+          Phone
+          <b item-end>{{phonenum}}</b>    
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="call" item-start></ion-icon>
+          Address
+          <b item-end>{{address}}</b>    
+        </ion-item>
 
       </ion-list>
+      
+      <button ion-button full (click)="goToHouse()">
+        <ion-icon name="home" item-start></ion-icon>
+          Houses
+        </button>
     </ion-card>
 </ion-content>
