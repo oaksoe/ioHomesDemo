@@ -28,6 +28,7 @@
 
       <ion-list>
 
+        <ion-item-sliding>
         <ion-item>
           <ion-icon name="mail" item-start></ion-icon>
           Email
@@ -47,11 +48,12 @@
         </ion-item>
 
         <ion-item>
-          <ion-icon name="call" item-start></ion-icon>
+          <ion-icon name="map" item-start></ion-icon>
           Address
           <b item-end>{{address}}</b>    
         </ion-item>
 
+        </ion-item-sliding>
       </ion-list>
       
       <button ion-button full (click)="goToHouse()">
