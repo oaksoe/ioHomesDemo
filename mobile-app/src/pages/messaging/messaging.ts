@@ -14,6 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'messaging.html',
 })
 export class MessagingPage {
+  myText="Hi, I'm fine. Thanks!";
+  friText="Hello, how are you?";
+  sendTime="";
+  recTime="";
+  avatar="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
