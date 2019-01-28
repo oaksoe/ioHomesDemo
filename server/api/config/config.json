@@ -1,0 +1,28 @@
+{
+    "development" : {
+        "api": {
+            "host": "localhost",
+            "port": 8000,
+            "jwtSecret" : "qwerty-is-secret"
+        },        
+        "db": {
+            "mongo": {
+                "host": "127.0.0.1",
+                "port": 27017
+            }            
+        }
+    },
+    "production" : {
+        "api": {
+            "host": "0.0.0.0",
+            "port": 8000,
+            "jwtSecret" : "qwerty-is-secret"
+        },        
+        "db": {
+            "mongo": {
+                "host": "127.0.0.1",
+                "port": 27017
+            }            
+        }
+    }
+}
