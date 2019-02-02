@@ -20,8 +20,10 @@ app.use(cookieParser());
 // init modules
 var auth = require('./modules/auth');
 var http = require('./modules/http');
+var db = require('./modules/db');
 auth.init(appConfig.app);
 http.init(appConfig.app.http);
+db.init(appConfig.db);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,7 +42,7 @@ app.use(function(err, req, res, next) {
 
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {
     console.log('ioHomes auth server listening on address ' + 
-        server.address().address + ":"+ server.address().port);
+        server.address().address + ':'+ server.address().port);
 })
 
 process.on('SIGINT', function(){

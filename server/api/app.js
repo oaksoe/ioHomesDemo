@@ -19,7 +19,9 @@ app.use(cookieParser());
 
 // init modules
 var http = require('./modules/http');
+var db = require('./modules/db');
 http.init(appConfig.app.http);
+db.init(appConfig.db);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

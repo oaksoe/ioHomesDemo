@@ -17,7 +17,7 @@
             "mongo": {
                 "host": "127.0.0.1",
                 "port": 27017,
-                "db": "ioh-api-db"
+                "dbMain": "ioh-api-db"
             }            
         }
     },
@@ -39,7 +39,7 @@
             "mongo": {
                 "host": "127.0.0.1",
                 "port": 27023,
-                "db": "ioh-api-db"
+                "dbMain": "ioh-api-db"
             }            
         }
     }
