@@ -18,7 +18,9 @@ app.use(bodyParser.urlencoded({limit: appConfig.app.http.jsonLimit, extended: tr
 app.use(cookieParser());
 
 // init modules
+var auth = require('./modules/auth');
 var http = require('./modules/http');
+auth.init(appConfig.app);
 http.init(appConfig.app.http);
 
 /// catch 404 and forward to error handler
@@ -37,7 +39,7 @@ app.use(function(err, req, res, next) {
 });
 
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {
-    console.log('ioHomes api server listening on address ' + 
+    console.log('ioHomes auth server listening on address ' + 
         server.address().address + ":"+ server.address().port);
 })
 

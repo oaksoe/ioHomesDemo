@@ -1,10 +1,9 @@
 var jwt = require('jsonwebtoken');
-var status = require('./status');
-var config = require('./helpers/config.js');
-var appConfig = config.get(app.get('env'));
+var status = require('../helpers/status');
+var authConfig; 
 
 exports.signUser = (user) => {
-	var token = jwt.sign({user:user}, appConfig.api.jwtSecret, {
+	var token = jwt.sign({ user:user }, authConfig.jwtSecret, {
 		expiresIn : "24h"
     });
     
@@ -18,7 +17,7 @@ exports.authenticateRequest = () => {
 		console.log("authToken: " + authToken);
 
 		if (authToken) {
-			jwt.verify(authToken, appConfig.api.jwtSecret, (err, decoded) => {
+			jwt.verify(authToken, authConfig.jwtSecret, (err, decoded) => {
 				if (err) { 
 	 				res.json({ status: status.INVALID_AUTH_TOKEN });
 				} else {
@@ -31,4 +30,9 @@ exports.authenticateRequest = () => {
 			res.json({ status: status.NO_AUTH_TOKEN });
 		}
 	};
+}
+
+exports.init = (config) => {
+	console.log("Auth module initialized.");
+	authConfig = config;
 }
