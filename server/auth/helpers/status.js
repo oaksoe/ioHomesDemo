@@ -7,3 +7,7 @@ exports.INVALID_AUTH_TOKEN = { reqStatus: "ERROR", messages: [{ messageCode: "AU
 exports.INVALID_USER = { reqStatus: "ERROR", messages: [{ messageCode: "AUTH003", messageText: "invalid user" }] };
 exports.TOKEN_DELETED = { reqStatus: "ERROR", messages: [{ messageCode: "AUTH004", messageText: "token deleted" }] };
 exports.INVALID_PASSWORD = { reqStatus: "ERROR", messages: [{ messageCode: "AUTH005", messageText: "invalid password" }] };
+
+// db errors
+exports.DB_CONN_ERROR = { reqStatus: "ERROR", messages: [{ messageCode: "DB001", messageText: "database connection error" }] };
+exports.DB_ERROR = { reqStatus: "ERROR", messages: [{ messageCode: "DB002", messageText: "database error" }] };

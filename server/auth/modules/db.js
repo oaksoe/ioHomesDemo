@@ -2,8 +2,9 @@ var mongoClient = require('mongodb').MongoClient;
 var dbConfig;
 var dbConnection;
 
-exports.collection = (name) => {
-    return dbConnection.collection(name);
+var connect = async () => {
+    var dbUrl = 'mongodb://' + dbConfig.mongo.host + ':' + dbConfig.mongo.port + '/' + dbConfig.mongo.dbMain;
+    await mongoClient.connect(dbUrl, { useNewUrlParser: true }); 
 }
 
 exports.disconnect = () => {
@@ -12,15 +13,19 @@ exports.disconnect = () => {
     }
 }
 
+exports.collection = (name) => {
+    return dbConnection ? dbConnection.collection(name) : null;
+}
+
 exports.init = (config) => {
     console.log('db module initialized.');
     dbConfig = config;
 
-    var dbUrl = 'mongodb://' + dbConfig.mongo.host + ':' + dbConfig.mongo.port + '/' + dbConfig.mongo.dbMain;
-    mongoClient.connect(dbUrl, { useNewUrlParser: true }, function (err, db) {                    
-        if(err) throw err;
-        console.log('mongodb connected and listening on address ' +  
-            dbConfig.mongo.host + ':'+ dbConfig.mongo.port);
+    connect().then(db => {
         dbConnection = db;
+        console.log('mongodb connected and listening on address ' +  
+        dbConfig.mongo.host + ':'+ dbConfig.mongo.port);
+    }).catch(err => {
+        console.log('mongodb connection error');
     });
 }

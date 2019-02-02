@@ -5,7 +5,7 @@ var helmet = require('helmet');
 var morgan = require('morgan');
 var fs = require('fs');
 var path = require('path');
-var config = require('./helpers/config.js');
+var config = require('./helpers/config');
 
 var app = express();
 var appConfig = config.get(app.get('env'));
@@ -39,8 +39,8 @@ app.use(function(err, req, res, next) {
 });
 
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {
-    console.log('ioHomes api server listening on address ' + 
-        server.address().address + ":"+ server.address().port);
+	console.log('ioHomes api server listening on address ' + 
+		server.address().address + ":"+ server.address().port);
 })
 
 process.on('SIGINT', function(){
