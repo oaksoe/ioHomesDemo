@@ -34,8 +34,6 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
 	res.send(err);
-	logger.error(`error: status=${err.status} message:${err}`);
-	logger.error(err);
 });
 
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {

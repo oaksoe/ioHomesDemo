@@ -1,0 +1,46 @@
+{
+    "development" : {
+        "app": {
+            "host": "localhost",
+            "port": 8000,
+            "http": {
+                "jsonLimit": "100mb",
+                "cors": {
+                    "allowOrigin": "*",
+                    "allowMethods": "GET,POST,PUT,DELETE,OPTIONS,PATCH",
+                    "allowHeaders": "Cache-Control,Content-Type,Authorization,Content-Length",
+                    "maxAge": "1000"
+                }
+            },
+            "servers": {
+                "auth": "http://localhost:8001",
+                "api": "http://localhost:8002",
+                "iot": "http://localhost:8003",
+                "sns": "http://localhost:8004",
+                "chat": "http://localhost:8005"
+            }
+        }
+    },
+    "production" : {
+        "app": {
+            "host": "0.0.0.0",
+            "port": 8000,
+            "http": {
+                "jsonLimit": "100mb",
+                "cors": {
+                    "allowOrigin": "*",
+                    "allowMethods": "GET,POST,PUT,DELETE,OPTIONS,PATCH",
+                    "allowHeaders": "Cache-Control,Content-Type,Authorization,Content-Length",
+                    "maxAge": "1000"
+                }
+            },
+            "servers": {
+                "auth": "http://0.0.0.0:8001",
+                "api": "http://0.0.0.0:8002",
+                "iot": "http://0.0.0.0:8003",
+                "sns": "http://0.0.0.0:8004",
+                "chat": "http://0.0.0.0:8005"
+            }
+        }
+    }
+}

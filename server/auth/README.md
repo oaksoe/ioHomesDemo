@@ -2,7 +2,7 @@
 # ----------------
 
 # register user
-api: http://localhost:8001/v1/ioh/users/register
+api: http://localhost:8001/v1/ioh/auth/register
 method: post
 body: {
      "email": "oak@gmail.com",
@@ -16,7 +16,7 @@ response: {
 }
 
 # login user
-api: http://localhost:8001/v1/ioh/users/login
+api: http://localhost:8001/v1/ioh/auth/login
 method: post
 body: {
      "email": "oak@gmail.com",
