@@ -25,6 +25,10 @@ auth.init(appConfig.app);
 http.init(appConfig.app.http);
 db.init(appConfig.db);
 
+//Routes
+var authRoute = require('./routes/auth');
+app.use('/v1/ioh/users', authRoute);
+
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	var err = new Error('Not Found');

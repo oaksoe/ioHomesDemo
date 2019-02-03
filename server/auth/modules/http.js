@@ -17,6 +17,20 @@ exports.enableCORS = (req, res, next) => {
     }
 };
 
+exports.res = (res, data) => {
+    res.status(200).json({
+        status: "SUCCESS",
+        data: data
+    });
+}
+
+exports.err = (res, error) => {
+    res.status(500).json({
+        status: "ERROR",
+        error: error.message ? error.message : error
+    });    
+}
+
 exports.init = (config) => {
     console.log("http module initialized.");
     httpConfig = config;

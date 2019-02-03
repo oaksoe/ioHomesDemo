@@ -7,7 +7,7 @@ exports.signUser = (user) => {
 		expiresIn : "24h"
     });
     
-	console.log(`sign user(${user}) - return token (${token})`);
+	// console.log(`sign user(${user}) - return token (${token})`);
 	return token;
 }
 
