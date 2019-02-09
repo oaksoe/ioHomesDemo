@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var http = require('../modules/http');
+var auth = require('../modules/auth');
 var userController = require('../controllers/userController');
 var authController = require('../controllers/authController');
 var crypto = require('../helpers/crypto');
@@ -40,7 +41,12 @@ var login = async (req, res) => {
     }
 }
 
+var postAuth = (req, res) => {
+    http.res(res, null);
+}
+
 router.post('/login', login);
 router.post('/register', register);
+router.post('/auth', auth.authenticateRequest(), postAuth);
 
 module.exports = router;

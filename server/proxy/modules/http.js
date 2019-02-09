@@ -1,4 +1,15 @@
+
+var request = require('request');
 var httpConfig;
+
+exports.post = (url, body, headers, cb) => {
+    request.post({
+		url: url,
+		body: body,
+        json: true, 
+        headers: headers
+	}, cb);
+}
 
 exports.corsOptions = () => {
     return {

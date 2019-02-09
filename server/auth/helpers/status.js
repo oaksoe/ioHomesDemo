@@ -7,4 +7,4 @@ exports.EXISTING_USER = { code: "AUTH005", message: "user already exists." };
 
 // db errors
 exports.DB_CONN_ERROR = { code: "DB001", message: "database connection error." };
-exports.DB_ERROR = { code: "DB001", message: "database error." };
+exports.DB_ERROR = { code: "DB002", message: "database error." };

@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var helmet = require('helmet');
 var morgan = require('morgan');
+var cors = require('cors');
 var fs = require('fs');
 var path = require('path');
 var config = require('./helpers/config');
@@ -22,6 +23,15 @@ var http = require('./modules/http');
 var db = require('./modules/db');
 http.init(appConfig.app.http);
 db.init(appConfig.db);
+
+// set cors
+app.use(cors(http.corsOptions()));
+
+// routes
+var userRoute = require('./routes/user');
+var homeRoute = require('./routes/home');
+app.use('/v1/ioh/api/user/', userRoute);
+app.use('/v1/ioh/api/home/', homeRoute);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

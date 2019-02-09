@@ -19,7 +19,7 @@ exports.authenticateRequest = () => {
 		if (authToken) {
 			jwt.verify(authToken, authConfig.jwtSecret, (err, decoded) => {
 				if (err) { 
-	 				res.json({ status: status.INVALID_AUTH_TOKEN });
+	 				res.status(500).json({ error: status.INVALID_AUTH_TOKEN });
 				} else {
 					var user = decoded.user;
 					console.log("authToken contains: " + user);					
@@ -27,7 +27,7 @@ exports.authenticateRequest = () => {
 				}
 			});
 		} else {
-			res.json({ status: status.NO_AUTH_TOKEN });
+			res.status(500).json({ error: status.NO_AUTH_TOKEN });
 		}
 	};
 }
