@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var helmet = require('helmet');
 var morgan = require('morgan');
+var cors = require('cors');
 var fs = require('fs');
 var path = require('path');
 var config = require('./helpers/config');
@@ -27,8 +28,8 @@ auth.init(appConfig.app);
 http.init(appConfig.app.http);
 db.init(appConfig.db);
 
-// custom middlewares
-app.use(http.enableCORS);
+// set cors
+app.use(cors(http.corsOptions()));
 
 // routes
 var authRoute = require('./routes/auth');

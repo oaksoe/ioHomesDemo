@@ -2,6 +2,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var helmet = require('helmet');
 var morgan = require('morgan');
+var cors = require('cors');
 var fs = require('fs');
 var path = require('path');
 var httpProxy = require('http-proxy');
@@ -18,6 +19,9 @@ app.use(cookieParser());
 // init modules
 var http = require('./modules/http');
 http.init(appConfig.app.http);
+
+// set cors
+app.use(cors(http.corsOptions()));
 
 // redirect routes
 // Ref: https://codeforgeek.com/2015/12/reverse-proxy-using-expressjs/
