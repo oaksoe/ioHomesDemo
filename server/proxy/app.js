@@ -45,13 +45,18 @@ apiProxy.on('proxyReq', (proxyReq, req, res, options) => {
 
 // redirect routes
 // Ref: https://codeforgeek.com/2015/12/reverse-proxy-using-expressjs/
-app.all('/v1/ioh/pub/api/*', (req, res) => {
-	apiProxy.web(req, res, { target: appConfig.app.servers.api });
+app.all(/\/v1\/ioh\/pub\/(api|iot|sns)\/*/, (req, res) => {
+	var regex = /(api|iot|sns)/;
+	var server = req.url.match(regex);
+	server = server[0] ? server[0] : 'api';
+	var urlToAppend = req.url.split(server)[1];
+	req.url = '/v1/ioh/' + server + urlToAppend;			
+	apiProxy.web(req, res, { target: appConfig.app.servers[server] });
 });
 
 app.post('/v1/ioh/login', bodyParser.json(), (req, res) => {
 	var url = appConfig.app.servers.auth + '/v1/ioh/auth/login';
-	http.post(url, req.body, (err, resp, body) => {
+	http.post(url, req.body, {}, (err, resp, body) => {
 		if (err) {
 			http.err(res, err);
 		} else if (resp.statusCode === 200) {
@@ -68,7 +73,7 @@ app.post('/v1/ioh/register', bodyParser.json(), (req, res) => {
 	http.post(url, {
 		email: user.email,
 		password: user.password
-	}, (err, resp, body) => {
+	}, {}, (err, resp, body) => {
 		if (err) {
 			http.err(res, err);
 		} else if (resp.statusCode === 200) {
@@ -83,7 +88,7 @@ app.post('/v1/ioh/register', bodyParser.json(), (req, res) => {
 	});
 });
 
-app.post('/v1/ioh/api/*', bodyParser.json(), (req, res) => {
+app.all(/\/v1\/ioh\/(api|iot|sns)\/*/, (req, res) => {
 	var url = appConfig.app.servers.auth + '/v1/ioh/auth/auth';
 	http.post(url, {}, {
 		authorization: req.headers.authorization
@@ -91,14 +96,15 @@ app.post('/v1/ioh/api/*', bodyParser.json(), (req, res) => {
 		if (err) {
 			http.err(res, err);
 		} else if (resp.statusCode === 200) {
-			apiProxy.web(req, res, { target: appConfig.app.servers.api });
+			var regex = /(api|iot|sns)/;
+			var server = req.url.match(regex);
+			server = server[0] ? server[0] : 'api';
+			apiProxy.web(req, res, { target: appConfig.app.servers[server] });
 		} else {
 			http.err(res, body);
 		}		
 	});
 });
-
-// app.all('/v1/ioh/auth/*')
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -116,7 +122,11 @@ app.use(function(err, req, res, next) {
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {
     console.log('ioHomes proxy server listening on address ' + 
     	server.address().address + ':'+ server.address().port);
-})
+});
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
 
 process.on('SIGINT', function(){
 	console.log('App exited!');

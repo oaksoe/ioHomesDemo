@@ -10,10 +10,10 @@ exports.remove = async (db, criteria) => {
     return await db.remove(criteria);
 }
 
-exports.find = async (db, criteria) => {
+exports.findOne = async (db, criteria) => {
     return await db.findOne(criteria);
 }
 
-exports.findAll = async (db) => {
-    return await db.find().toArray();
+exports.find = async (db, criteria) => {
+    return await db.find(criteria).toArray();
 }

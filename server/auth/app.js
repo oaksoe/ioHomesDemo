@@ -51,7 +51,11 @@ app.use(function(err, req, res, next) {
 var server = app.listen(appConfig.app.port, appConfig.app.host, () => {
     console.log('ioHomes auth server listening on address ' + 
     	server.address().address + ':'+ server.address().port);
-})
+});
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
+});
 
 process.on('SIGINT', function(){
 	console.log('App exited!');

@@ -1,4 +1,4 @@
-# test auth server
+# auth server apis
 # ----------------
 
 # register user
