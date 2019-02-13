@@ -1,26 +1,15 @@
 page-messaging {
 
-    .neighbour-list{
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        bottom: 0;
-        position: fixed;
-        left: 0px;
-        overflow: hidden;
-        top: 0px;
-        width: 23%;
-        font-size: 40px;
-    }
-
     .messages{
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
-        bottom: 0;
+        margin: 10px;
         position: fixed;
         overflow: hidden;
-        top: 0px;
-        width: 75%;
-        right: 10px;
+        bottom: 0px;
+        top:0px;
+        right: 0px;
+        left: 0px;
         font-size: 40px;
 
     }

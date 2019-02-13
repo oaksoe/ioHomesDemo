@@ -3,7 +3,7 @@ page-welcome {
     position: relative;
     background: url('../assets/img/splashbg.png') no-repeat transparent;
     background-size: cover;
-    height: 45%;
+    height: 40%;
     z-index: 1;
     background-repeat: repeat-x;
     animation: animatedBackground 40s linear infinite;
@@ -22,7 +22,7 @@ page-welcome {
   }
   .splash-logo {
     margin: auto;
-    background: url('../assets/img/appicon.png') repeat transparent;
+    background: url('../assets/imgs/iohomeslogo.png') repeat transparent;
     background-size: 100%;
     width: 128px;
     height: 128px;
@@ -42,5 +42,12 @@ page-welcome {
     &.activated {
       background-color: rgb(220, 220, 220);
     }
+  }
+  .signuptext {
+    font-size: 24;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    text-align: center;
   }
 }
