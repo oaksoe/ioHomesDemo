@@ -1,20 +1,19 @@
-export class Home{
-    home:string;
-    address:string;
-    
-    public setHome(home){
-        this.home = home;
-    }
+export interface Home {
+    id: string;
+    userID: string;
+    name: string;
+    type: string;
+    location: Location;
+}
 
-    public getHome(){
-        return this.home;
-    }
-
-    public setAddress(address){
-        this.address= address;
-    }
-
-    public getAddress(){
-        return this.address;
-    }
+export interface Location {
+    landmarks: string;
+    geolocation: string;
+    address: string;
+    street: string;
+    ward: string;
+    township: string;
+    city: string;
+    state: string;
+    country: string;
 }

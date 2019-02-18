@@ -10,14 +10,12 @@ var user = {
 } 
 
 var home = {
+    "id": "",
 	"userID": "36648d5e-1502-437d-bd8c-f884604410a9",
 	"name": "Pearl Condo",
 	"type": "Condo",
 	"landmarks": "People's Park, Junction Mall",
-	"location": {
-        "x": 12.11,
-        "y": 13.44
-    },
+	"location": "x,y",
     "address": "No. 12 (b)",
     "street": "Ma Kyi Kyi",
     "ward": "Galone",

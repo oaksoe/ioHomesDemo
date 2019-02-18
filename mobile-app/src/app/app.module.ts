@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera';
@@ -10,7 +10,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { Items } from '../mocks/providers/items';
-import { Settings, User, Api } from '../providers';
+import { 
+    Settings, 
+    User, 
+    HttpService, 
+    TokenInterceptor,
+    AuthService,
+    UserApiService,
+    HomeApiService,
+} from '../providers';
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
 
@@ -59,7 +67,15 @@ export function provideSettings(storage: Storage) {
     PopupDialogPage
   ],
   providers: [
-    Api,
+    HttpService,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptor,
+        multi: true
+    },
+    AuthService,
+    UserApiService,
+    HomeApiService,
     Items,
     User,
     Camera,

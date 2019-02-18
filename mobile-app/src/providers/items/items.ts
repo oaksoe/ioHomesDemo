@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Item } from '../../models/item';
-import { Api } from '../api/api';
+import { HttpService } from '../api/http.service';
 
 @Injectable()
 export class Items {
 
-  constructor(public api: Api) { }
+  constructor(public api: HttpService<any>) { }
 
   query(params?: any) {
     return this.api.get('/items', params);
