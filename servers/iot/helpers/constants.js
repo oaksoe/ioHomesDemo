@@ -1,0 +1,3 @@
+exports.DEVICES = {
+    PLUG: 'Plug'
+}
