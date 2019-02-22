@@ -3,7 +3,7 @@ page-welcome {
     position: relative;
     background: url('../assets/img/splashbg.png') no-repeat transparent;
     background-size: cover;
-    height: 40%;
+    height: 35%;
     z-index: 1;
     background-repeat: repeat-x;
     animation: animatedBackground 40s linear infinite;
@@ -49,5 +49,6 @@ page-welcome {
     position: relative;
     z-index: 2;
     text-align: center;
+    margin-bottom: 20px;
   }
 }

@@ -8,10 +8,10 @@
 
   <ion-navbar>
 
-      <button ion-button icon-only menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
-      
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
     <ion-title>{{home}}</ion-title>
   </ion-navbar>
 
@@ -20,22 +20,24 @@
 
 <ion-content padding>
 
-    <ion-fab right bottom>
-      <button ion-fab color="orange"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
-  
-    <ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="orange">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list>
       <button ion-item (click)="optionMonitor()">
         <ion-card>
           <ion-item>
             <ion-avatar item-start>
-                <img src="assets/monitor.png">
+              <img src="assets/monitor.png">
             </ion-avatar>
             <h2>Smart TV</h2>
           </ion-item>
         </ion-card>
       </button>
-      
+
       <button ion-item (click)="optionCCTV()">
         <ion-card>
           <ion-item>
@@ -57,7 +59,6 @@
           </ion-item>
         </ion-card>
       </button>
-
-    </ion-list>
+  </ion-list>
 
 </ion-content>

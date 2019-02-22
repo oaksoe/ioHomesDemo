@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the PopupDialogPage page.
@@ -16,9 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PopupDialogPage {
 
   type: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navParams: NavParams, private view: ViewController) {
 
     this.type = this.navParams.get('type');
+  }
+
+  closeModal(){
+    this.view.dismiss();
   }
 
   ionViewDidLoad() {

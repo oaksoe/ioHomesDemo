@@ -7,9 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button icon-only menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Messages</ion-title>
   </ion-navbar>
 
@@ -17,20 +17,66 @@
 
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card class="messages" itemend>
-            <ion-tabs>
-                <ion-tab-bar slot="bottom">
-                  <ion-tab-button tab="schedule">
-                    <ion-icon name="calendar"></ion-icon>
-                    <ion-label>Schedule</ion-label>
-                  </ion-tab-button>
-                </ion-tab-bar>
-              </ion-tabs>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+    <ion-fab right bottom>
+        <button ion-fab color="orange">
+          <ion-icon name="text"></ion-icon>
+        </button>
+      </ion-fab>
+      
+  <ion-list>
+    <ion-item-sliding>
+    <div ion-item class="chat-history" (click)="openMessage()">
+      <ion-avatar item-start>
+        <img src="assets/userBlue.png">
+      </ion-avatar>
+      
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
+
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+    <div ion-item class="chat-history">
+      <ion-avatar item-start>
+        <img src="assets/userOrange.png">
+      </ion-avatar>
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
+
+
+    <ion-item-sliding>
+    <div ion-item class="chat-history">
+      <ion-avatar item-start>
+        <img src="assets/userGray.png">
+      </ion-avatar>
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
