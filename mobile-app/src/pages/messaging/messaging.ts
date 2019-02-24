@@ -14,6 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'messaging.html',
 })
 export class MessagingPage {
+  time="11:11pm";
+  username="Thet Htet Aung";
+  last_msg="How are you doing?"
+  avatar="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,6 +28,10 @@ export class MessagingPage {
 
   sendMessage(){
     
+  }
+
+  openMessage() {
+    this.navCtrl.push('ChatPage', this.username);
   }
 
 }

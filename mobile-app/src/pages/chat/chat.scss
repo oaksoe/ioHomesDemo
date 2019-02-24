@@ -1,0 +1,61 @@
+page-chat {
+    
+    .messages{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        margin: 5px;
+        position: fixed;
+        overflow: hidden;
+        bottom: 0px;
+        top:0px;
+        right: 0px;
+        left: 0px;
+        font-size: 40px;
+        
+        }
+        
+        ion-list{
+            background-color: transparent;
+        }
+        
+        .neighbour{
+        background-color: #f5f5f5;
+        margin: 2px;
+        position: absolute;
+        align-self: center;
+        width: 100%;
+        min-width: max-content;
+        }
+        
+        .card{
+        border-radius: 15px;
+        overflow: hidden;
+        }
+        
+        .header{
+        background-color: rgb(85, 182, 247);
+        }
+        
+        .msg{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: #81b885;
+        max-width: 750px;
+        padding: 5px;
+        width: auto;
+        }
+        
+        .myMsg{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: #adadad;
+        max-width: 750px;
+        padding: 5px;
+        width: auto;
+        }
+        
+}

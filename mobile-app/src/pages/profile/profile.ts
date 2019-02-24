@@ -18,7 +18,11 @@ import { HousePage } from '../house/house';
 export class ProfilePage {
 
   isDisabled = false;
-  username="User";
+  username="Thet Htet Aung";
+  mail="thethtetaung17@gmail.com";
+  gender="Male";
+  phonenum="09787800455";
+  address="60 St & Myitzu St Corner, Mandalay."
   houses:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService) {

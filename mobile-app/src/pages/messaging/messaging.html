@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Messages</ion-title>
   </ion-navbar>
 
@@ -14,92 +17,66 @@
 
 
 <ion-content padding>
-        <div class="neighbour-list">
 
-          <ion-navbar style="text-align:center" color="primary">
-            <ion-title style="font-size:30px;"> Neighbouring </ion-title>
-          </ion-navbar>
+    <ion-fab right bottom>
+        <button ion-fab color="orange">
+          <ion-icon name="text"></ion-icon>
+        </button>
+      </ion-fab>
+      
+  <ion-list>
+    <ion-item-sliding>
+    <div ion-item class="chat-history" (click)="openMessage()">
+      <ion-avatar item-start>
+        <img src="assets/userBlue.png">
+      </ion-avatar>
+      
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
 
-          <div class="neighbour">
-              <ion-list sliding="true">
-                  <ion-card class="card"> 
-                    <ion-item>
-                      <ion-avatar item-start>
-                          <img src="assets/userBlue.png">
-                      </ion-avatar>
-                      <h2>User 1</h2>
-                      <h5 item-end> 9:45 pm </h5>
-                    </ion-item>
-                  </ion-card>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
 
-                  <ion-card class="card">
-                      <ion-item>
-                        <ion-avatar item-start>
-                            <img src="assets/userOrange.png">
-                        </ion-avatar>
-                        <h2>User 2</h2>
-                        <h5 item-end> 10:00 pm </h5>
-                      </ion-item>
-                    </ion-card>
+    <ion-item-sliding>
+    <div ion-item class="chat-history">
+      <ion-avatar item-start>
+        <img src="assets/userOrange.png">
+      </ion-avatar>
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
 
-                    <ion-card class="card">
-                        <ion-item>
-                          <ion-avatar item-start>
-                              <img src="assets/userPink.png">
-                          </ion-avatar>
-                          <h2>User 3</h2>
-                          <h5 item-end> 10:15 pm </h5>
-                        </ion-item>
-                      </ion-card>
 
-                      <ion-card class="card">
-                          <ion-item>
-                            <ion-avatar item-start>
-                                <img src="assets/userGray.png">
-                            </ion-avatar>
-                            <h2>User 4</h2>
-                            <h5 item-end> 10:40 pm </h5>
-                          </ion-item>
-                        </ion-card>
-                        
-                                
-              </ion-list>
-          </div>
-        </div>
-
-        <div class="messages" >
-            <ion-navbar style="text-align: center" color="primary"><ion-title>Messages</ion-title></ion-navbar>
-
-            <ion-content>
-                <div>
-                  <ion-list>
-
-                    <ion-card class="msg">
-                    <ion-item class="msg" style="text-align: left; left: 2px; ">
-                      <ion-avatar item-start>
-                          <img src="assets/userBlue.png">
-                      </ion-avatar>
-                      <p style="font-size:20px; color: black">Hello, how are you?</p>
-                      <h6 item-end > 10:40 pm </h6>
-                    </ion-item>
-                    </ion-card>
-
-                    <ion-card style=" background-color: #81b885; right: 2px; margin-left: 400px;" class="msg" end>
-                      <ion-item class="msg" style="text-align: right; right: 2px; ">
-                        <p style="font-size:20px; color: black">Hi, I'm fine. Thanks, and you?</p>
-                        <h6 item-start > 10:40 pm </h6>
-                      </ion-item>
-                      </ion-card>
-                  </ion-list>
-                </div>
-            </ion-content>
-            <ion-footer no-border>
-                <ion-toolbar>
-                    <ion-item>
-                        <ion-input type="text" placeholder="Enter message...."></ion-input>
-                        <button item-end (click)="sendMessage()"><ion-icon name="send"></ion-icon></button>
-                      </ion-item>
-                  </ion-toolbar>
-              </ion-footer>
-          </div>
+    <ion-item-sliding>
+    <div ion-item class="chat-history">
+      <ion-avatar item-start>
+        <img src="assets/userGray.png">
+      </ion-avatar>
+      <div class="name">
+        <h4 item-start>{{username}}</h4>
+        <p>{{last_msg}}</p>
+      </div>
+    </div>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+            DELETE
+          </button>
+    </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
