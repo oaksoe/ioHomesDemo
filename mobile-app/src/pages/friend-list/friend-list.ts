@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ChatPage page.
+ * Generated class for the FriendListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,21 +10,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-chat',
-  templateUrl: 'chat.html',
+  selector: 'page-friend-list',
+  templateUrl: 'friend-list.html',
 })
-export class ChatPage {
+export class FriendListPage {
 
-  friText = "Hi, Nice to meet you. ";
-  myText = "Hello."
+  username = "Thet Htet Aung";
 
-  username: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.username = navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
+    console.log('ionViewDidLoad FriendListPage');
   }
 
 }

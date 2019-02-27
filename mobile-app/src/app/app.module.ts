@@ -14,6 +14,7 @@ import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
+import { DeviceCreatePage } from '../pages/device-create/device-create';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -39,7 +40,8 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    PopupDialogPage
+    PopupDialogPage,
+    DeviceCreatePage
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    DeviceCreatePage,
     MyApp,
     PopupDialogPage
   ],

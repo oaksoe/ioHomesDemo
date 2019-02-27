@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { PopupDialogPage } from '../popup-dialog/popup-dialog';
+import { DeviceCreatePage } from '../device-create/device-create';
 
 /**
  * Generated class for the HomePage page.
@@ -45,6 +46,11 @@ export class HomePage {
   optionLighting(){
     let obj = {type: 'Lighting'};
     let myModal = this.modalCtrl.create(PopupDialogPage, obj);
+    myModal.present();
+  }
+
+  addNew(){
+    let myModal = this.modalCtrl.create(DeviceCreatePage);
     myModal.present();
   }
 

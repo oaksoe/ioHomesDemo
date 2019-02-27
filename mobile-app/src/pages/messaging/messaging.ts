@@ -29,9 +29,13 @@ export class MessagingPage {
   sendMessage(){
     
   }
+  
 
   openMessage() {
     this.navCtrl.push('ChatPage', this.username);
+  }
+  newConversation(){
+    this.navCtrl.push('FriendListPage');
   }
 
 }
