@@ -19,44 +19,47 @@
 <ion-content padding>
   <ion-card>
     <div class="bg-image">
+      <div class="header-content">
       <ion-img style="
-          height: 150px !important;
-          width: 150px !important;
-          margin-top: 5%;
+          height: 100px !important;
+          width: 100px !important;
+          margin-top: 40px;
+          position: relative;
           background: none !important;
           background-color :none !important;"
         src="assets/ava.png" class="round-image"></ion-img>
-      <h1 style="margin-top: 5px; font-size: 30px; align-self: center">{{username}}</h1>
-
+      <h1>{{username}}</h1>
+      </div>
     </div>
 
-    <ion-list>
-      <ion-item-sliding>
-        <ion-item>
+    <ion-list lines="inset">
+        <ion-item-divider color="light">
           <ion-icon name="mail" item-start></ion-icon>
           Email
           <b item-end class="user-detail">{{mail}}</b>
-        </ion-item>
+        </ion-item-divider>
 
-        <ion-item>
+      
+
+        <ion-item-divider color="light">
           <ion-icon name="transgender" item-start></ion-icon>
           Gender
           <b item-end class="user-detail">{{gender}}</b>
-        </ion-item>
+        </ion-item-divider>
 
-        <ion-item>
+        <ion-item-divider color="light">
           <ion-icon name="call" item-start></ion-icon>
           Phone
           <b item-end class="user-detail">{{phonenum}}</b>
-        </ion-item>
+        </ion-item-divider>
 
-        <ion-item>
+        <ion-item-divider color="light">
           <ion-icon name="map" item-start></ion-icon>
           Address
           <b item-end class="user-detail">{{address}}</b>
-        </ion-item>
+        </ion-item-divider>
 
-      </ion-item-sliding>
+      
     </ion-list>
     <!--       
       <button ion-button full (click)="goToHouse()">
