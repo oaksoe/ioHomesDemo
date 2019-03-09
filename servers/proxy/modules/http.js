@@ -21,17 +21,11 @@ exports.corsOptions = () => {
 };
 
 exports.res = (res, data) => {
-    res.status(200).json({
-        status: 'SUCCESS',
-        data: data
-    });
+    res.status(200).json(data);
 }
 
 exports.err = (res, error) => {
-    res.status(500).json({
-        status: 'ERROR',
-        error: error.message ? error.message : error
-    });    
+    res.status(500).json(error);    
 }
 
 exports.init = (config) => {

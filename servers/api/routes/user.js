@@ -18,9 +18,14 @@ var create = async (req, res) => {
 var update = async (req, res) => {
     var user = req.body;
     var criteria = { id: user.id };
-
+    var userData = {
+        phone: user.phone,
+        education: user.education,
+        jobTitle: user.jobTitle
+    }
+    
     try {
-        await dbEntityController.update(entity, user, criteria);
+        await dbEntityController.update(entity, userData, criteria);
         http.res(res, null);
     } catch(err) {
         http.err(res, err);

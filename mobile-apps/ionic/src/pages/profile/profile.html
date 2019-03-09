@@ -28,43 +28,64 @@
           background: none !important;
           background-color :none !important;"
         src="assets/ava.png" class="round-image"></ion-img>
-      <h1>{{username}}</h1>
+      <h1>{{ user.name }}</h1>
       </div>
     </div>
 
-    <ion-list lines="inset">
-        <ion-item-divider color="light">
-          <ion-icon name="mail" item-start></ion-icon>
-          Email
-          <b item-end class="user-detail">{{mail}}</b>
-        </ion-item-divider>
+    <form (submit)="update()">
+      <ion-list lines="inset">
+          <ion-item-divider color="light">
+            <ion-icon name="mail" item-start></ion-icon>
+            <ion-label>Email</ion-label>
+            <b item-end class="user-detail">{{user.email}}</b>
+          </ion-item-divider>     
 
+          <ion-item-divider color="light">
+            <ion-icon name="transgender" item-start></ion-icon>
+            <ion-label>Gender</ion-label>
+            <b item-end class="user-detail">{{user.gender}}</b>
+          </ion-item-divider>
+
+          <ion-item-divider color="light">
+            <ion-icon name="card" item-start></ion-icon>
+            <ion-label>IC</ion-label>
+            <b item-end class="user-detail">{{user.ic}}</b>
+          </ion-item-divider>
+
+          <ion-item-divider color="light">
+            <ion-icon name="call" item-start></ion-icon>
+            <ion-label>Phone</ion-label>
+            <b item-end class="user-detail">
+              <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>
+            </b>
+          </ion-item-divider>
+
+          <ion-item-divider color="light">
+            <ion-icon name="school" item-start></ion-icon>
+            <ion-label>Highest Education</ion-label>
+            <b item-end class="user-detail">
+              <ion-input type="text" [(ngModel)]="user.education" name="education"></ion-input>
+            </b>
+          </ion-item-divider>
+          
+          <ion-item-divider color="light">
+            <ion-icon name="paper" item-start></ion-icon>
+            <ion-label>Job Title</ion-label>
+            <b item-end class="user-detail">
+              <ion-input type="text" [(ngModel)]="user.jobTitle" name="jobTitle"></ion-input>
+            </b>
+          </ion-item-divider>
+      </ion-list>
+
+      <div padding>
+        <button ion-button color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
+      </div>
+      <!--       
+        <button ion-button full (click)="goToHouse()">
+          <ion-icon name="home" item-start></ion-icon>
+            Houses
+          </button> -->
       
-
-        <ion-item-divider color="light">
-          <ion-icon name="transgender" item-start></ion-icon>
-          Gender
-          <b item-end class="user-detail">{{gender}}</b>
-        </ion-item-divider>
-
-        <ion-item-divider color="light">
-          <ion-icon name="call" item-start></ion-icon>
-          Phone
-          <b item-end class="user-detail">{{phonenum}}</b>
-        </ion-item-divider>
-
-        <ion-item-divider color="light">
-          <ion-icon name="map" item-start></ion-icon>
-          Address
-          <b item-end class="user-detail">{{address}}</b>
-        </ion-item-divider>
-
-      
-    </ion-list>
-    <!--       
-      <button ion-button full (click)="goToHouse()">
-        <ion-icon name="home" item-start></ion-icon>
-          Houses
-        </button> -->
+    </form>
   </ion-card>
 </ion-content>

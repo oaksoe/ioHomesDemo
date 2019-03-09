@@ -1,9 +1,9 @@
-var { login } = require('aw');
+var { login } = require('tplink-cloud-api');
 var uuidV4 = require('uuid/v4');
 var constants = require('../helpers/constants');
  
-var TPLINK_USER = process.env.TPLINK_USER;
-var TPLINK_PASS = process.env.TPLINK_PASS;
+var TPLINK_USER = process.env.TPLINK_USER || 'oaksoekyaw@gmail.com';
+var TPLINK_PASS = process.env.TPLINK_PASS || 'kasasecret';
 var TPLINK_TERM = process.env.TPLINK_TERM || uuidV4();
 
 var tplink;

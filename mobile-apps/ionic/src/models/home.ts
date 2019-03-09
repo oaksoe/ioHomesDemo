@@ -4,6 +4,9 @@ export interface Home {
     name: string;
     type: string;
     location: Location;
+    isOwner: boolean;
+    isStaying: boolean;
+    isAdmin: boolean;
 }
 
 export interface Location {

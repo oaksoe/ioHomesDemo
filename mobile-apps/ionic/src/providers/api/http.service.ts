@@ -24,7 +24,7 @@ export class HttpService<T> {
     }
 
     public delete(endpoint: string, options?: any) {
-        return this.http.delete(this.url + '/' + endpoint, options);
+        return this.http.delete(this.url + endpoint, options);
     }
 
     public put(endpoint: string, body: any, options?: any) {
@@ -36,20 +36,21 @@ export class HttpService<T> {
         return this.http.put(this.url + endpoint, body, options);
     }
 
-    public get(endpoint: string, params?: any, options?: any) {
-        if (!options) {
-            options = {
-              params: new HttpParams()
-            };
-        }
+    public get(endpoint: string, params = [], options?: any) {
+        // if (!options) {
+        //     options = {
+        //       params: new HttpParams()
+        //     };
+        // }
 
-        if (params) {
-            options.params = new HttpParams();
-            for (let k in params) {
-                options.params = options.params.set(k, params[k]);
-            }
-        }
+        // if (params) {
+        //     options.params = new HttpParams();
+        //     for (let k in params) {
+        //         options.params = options.params.set(k, params[k]);
+        //     }
+        // }
 
-        return this.http.get(this.url + '/' + endpoint, options);
+        const criteria = params.join('/');
+        return this.http.get(this.url + endpoint + criteria, options);
     }
 }

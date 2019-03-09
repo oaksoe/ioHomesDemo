@@ -7,3 +7,6 @@ export { UserApiService } from './api/user-api.service';
 export { Items } from '../mocks/providers/items';
 export { Settings } from './settings/settings';
 export { User } from './user/user';
+
+export { ToastService } from './toast/toast.service';
+export { TranslatorService } from './translator/translator.service';

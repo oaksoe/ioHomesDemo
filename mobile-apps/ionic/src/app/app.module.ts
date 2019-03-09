@@ -19,6 +19,8 @@ import {
     AuthService,
     UserApiService,
     HomeApiService,
+    ToastService,
+    TranslatorService,
 } from '../providers';
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
@@ -81,6 +83,8 @@ export function provideSettings(storage: Storage) {
     AuthService,
     UserApiService,
     HomeApiService,
+    ToastService,
+    TranslatorService,
     Items,
     User,
     Camera,
