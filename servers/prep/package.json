@@ -1,5 +1,5 @@
 {
-  "name": "io-homes-node-api",
+  "name": "io-homes-data-prep",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.5.3",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "helmet": "^3.15.0",
-    "mongodb": "^3.1.13",
-    "morgan": "^1.9.1",
-    "nconf": "^0.10.0",
-    "uuid": "^3.3.2"
+    "fast-csv": "^2.4.1"
   }
 }

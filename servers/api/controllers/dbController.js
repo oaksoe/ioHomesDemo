@@ -3,7 +3,7 @@ exports.create = async (db, data) => {
 }
 
 exports.update = async (db, data, criteria) => {
-    return await db.update(criteria, { $set: data });
+    return await db.updateOne(criteria, { $set: data });
 }
 
 exports.remove = async (db, criteria) => {

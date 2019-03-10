@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var http = require('../modules/http');
+var amqp = require('../modules/amqp');
 var dbEntityController = require('../controllers/dbEntityController');
+var prepHelper = require('../helpers/prep');
 var entity = 'user';
 
 var create = async (req, res) => {
@@ -9,6 +11,7 @@ var create = async (req, res) => {
 
     try {
         var result = await dbEntityController.create(entity, user);
+        amqp.publish(prepHelper.QUEUE_NAME, prepHelper.prepareUserData(user));
         http.res(res, result);
     } catch(err) {
         http.err(res, err);
@@ -26,6 +29,7 @@ var update = async (req, res) => {
     
     try {
         await dbEntityController.update(entity, userData, criteria);
+        amqp.publish(prepHelper.QUEUE_NAME, prepHelper.prepareUserData(user));
         http.res(res, null);
     } catch(err) {
         http.err(res, err);
