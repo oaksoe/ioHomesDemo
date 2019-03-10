@@ -8,13 +8,6 @@ export class UserApiService {
     constructor(private http: HttpService<any>) {
     }
  
-    public createUser(user: User): Observable<any> {
-        return this.http.post('api/user/create/', user)
-            .map((result: any) => {
-                return result;
-            }).catch(err => Observable.throw(err));
-    }
-
     public updateUser(user: User): Observable<any> {
         return this.http.put('api/user/', user)
             .map((result: any) => {

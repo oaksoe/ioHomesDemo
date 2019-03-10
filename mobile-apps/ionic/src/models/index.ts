@@ -1,3 +1,3 @@
 export * from './constants';
-export * from './user';
-export * from './home';
+export * from './user.model';
+export * from './home.model';

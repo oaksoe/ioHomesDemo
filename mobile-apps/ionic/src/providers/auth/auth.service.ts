@@ -20,6 +20,7 @@ export class AuthService {
             password: '',
             name: '',
             gender: '',
+            dob: '',
             ic: '',
             education: '',
             jobTitle: '',
@@ -43,6 +44,7 @@ export class AuthService {
             password: '',
             name: user.name,
             gender: user.gender,
+            dob: user.dob,
             ic: user.ic,
             education: user.education,
             jobTitle: user.jobTitle,
@@ -55,6 +57,13 @@ export class AuthService {
 
         //check token here
         return true;
+    }
+
+    public register(user: User): Observable<any> {
+        return this.http.post('register/', user)
+            .map((result: any) => {
+                return result;
+            }).catch(err => Observable.throw(err));
     }
     
     public login(user: User): Observable<any> {

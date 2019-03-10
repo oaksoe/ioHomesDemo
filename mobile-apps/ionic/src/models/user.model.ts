@@ -1,4 +1,4 @@
-import { Home } from "./home";
+import { Home } from "./home.model";
 export interface User {
     id: string;
     email: string;
@@ -6,6 +6,7 @@ export interface User {
     password: string;
     name: string;
     gender: string;
+    dob: string;
     ic: string;
     education: string;
     jobTitle: string;
