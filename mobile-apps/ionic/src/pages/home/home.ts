@@ -12,46 +12,54 @@ import { DeviceCreatePage } from '../device-create/device-create';
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+    selector: 'page-home',
+    templateUrl: 'home.html',
 })
 export class HomePage {
 
-  home ="Home";
+    home ="Home";
 
-  testCheckboxOpen = false;
-  testCheckboxResult: any;
+    testCheckboxOpen = false;
+    testCheckboxResult: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
-    this.home = navParams.get('home')|| "Home";
-  }
+    public isHomeInfo = false;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+        this.home = navParams.get('home') || "Home";
+    }
 
-  optionMonitor(){ 
-    let obj = {type: 'Smart TV'};
-    let myModal = this.modalCtrl.create(PopupDialogPage, obj);
-    myModal.present();
-  }
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad HomePage');
+    }
 
-  optionCCTV(){
+    optionMonitor() { 
+        let obj = {type: 'Smart Plug'};
+        let myModal = this.modalCtrl.create(PopupDialogPage, obj);
+        myModal.present();
+    }
 
-    let obj = {type: 'CCTV'};
-    let myModal = this.modalCtrl.create(PopupDialogPage, obj);
-    myModal.present();
-  }
+    optionCCTV() {
+        let obj = {type: 'CCTV'};
+        let myModal = this.modalCtrl.create(PopupDialogPage, obj);
+        myModal.present();
+    }
 
-  optionLighting(){
-    let obj = {type: 'Lighting'};
-    let myModal = this.modalCtrl.create(PopupDialogPage, obj);
-    myModal.present();
-  }
+    optionLighting(){
+        let obj = {type: 'Lighting'};
+        let myModal = this.modalCtrl.create(PopupDialogPage, obj);
+        myModal.present();
+    }
 
-  addNew(){
-    let myModal = this.modalCtrl.create(DeviceCreatePage);
-    myModal.present();
-  }
+    addNew(){
+        let myModal = this.modalCtrl.create(DeviceCreatePage);
+        myModal.present();
+    }
 
+    public showDevices() {
+        this.isHomeInfo = false;
+    }
+
+    public showHomeInfo() {
+        this.isHomeInfo = true;
+    }
 }

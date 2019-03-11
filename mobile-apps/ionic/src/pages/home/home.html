@@ -26,14 +26,33 @@
     </button>
   </ion-fab>
 
-  <ion-list>
+  <ion-row>
+      <ion-item>
+          <ion-avatar>
+              <div class="list-container">
+                  <div class="home-button-container">
+                    <div class="home-button" (click)="showDevices()">              
+                        <ion-icon name="bulb"></ion-icon>
+                    </div>                    
+                  </div>
+                  <div class="home-button-container">
+                    <div class="home-button" (click)="showHomeInfo()">              
+                        <ion-icon name="home"></ion-icon>
+                    </div>                    
+                  </div>
+              </div>
+          </ion-avatar>   
+      </ion-item>    
+  </ion-row>
+
+  <ion-list *ngIf="!isHomeInfo">
       <button ion-item (click)="optionMonitor()">
         <ion-card>
           <ion-item>
             <ion-avatar item-start>
               <img src="assets/monitor.png">
             </ion-avatar>
-            <h2>Smart TV</h2>
+            <h2>Smart Plug</h2>
           </ion-item>
         </ion-card>
       </button>

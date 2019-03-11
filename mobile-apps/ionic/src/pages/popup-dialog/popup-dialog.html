@@ -21,7 +21,7 @@
 
   <ion-item>
     <ion-label>On/Off</ion-label>
-    <ion-toggle></ion-toggle>
+    <ion-toggle [(ngModel)]="toggleState" (ionChange)="toggleChanged($event)"></ion-toggle>
   </ion-item>
 
 </ion-content>

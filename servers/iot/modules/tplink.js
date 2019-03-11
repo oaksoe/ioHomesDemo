@@ -7,12 +7,20 @@ var TPLINK_PASS = process.env.TPLINK_PASS || 'kasasecret';
 var TPLINK_TERM = process.env.TPLINK_TERM || uuidV4();
 
 var tplink;
-var plugs;
+var plugs = [];
 
 exports.login = async () => {
     if (!tplink) {
         tplink = await login(TPLINK_USER, TPLINK_PASS, TPLINK_TERM);
         console.log('current auth token is', tplink.getToken());
+        var devices = await this.getDevices();
+        console.log(devices);
+        await this.initDevices([{
+            type: 'Plug',
+            name: 'ioHomes smart plug'
+        }]);
+
+        await this.getPlugInfo('ioHomes smart plug');
     }
 };
 
@@ -34,6 +42,7 @@ exports.initDevices = async (devices) => {
 
 exports.togglePlug = async (plugName) => {
     var plug = plugs[plugName];
+    
     if (plug) {
         // var response = await plug.powerOn();
         // console.log("response=" + response );
@@ -51,5 +60,12 @@ exports.getPlugInfo = async (plugName) => {
         //console.log( JSON.parse(response).relay_state );
         
         console.log(await plug.getRelayState());
+    }
+}
+
+exports.getToggleState = async (plugName) => {
+    var plug = plugs[plugName];
+    if (plug) {
+        return await plug.getRelayState();
     }
 }
