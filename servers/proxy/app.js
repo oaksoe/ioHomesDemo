@@ -88,7 +88,7 @@ app.post('/v1/ioh/register', bodyParser.json(), (req, res) => {
 	});
 });
 
-app.all(/\/v1\/ioh\/(api|iot|sns)\/*/, (req, res) => {
+app.all(/\/v1\/ioh\/(api|iot|chat|sns)\/*/, (req, res) => {
 	var url = appConfig.app.servers.auth + '/v1/ioh/auth/auth';
 	http.post(url, {}, {
 		authorization: req.headers.authorization
@@ -96,7 +96,7 @@ app.all(/\/v1\/ioh\/(api|iot|sns)\/*/, (req, res) => {
 		if (err) {
 			http.err(res, err);
 		} else if (resp.statusCode === 200) {
-			var regex = /(api|iot|sns)/;
+			var regex = /(api|iot|chat|sns)/;
 			var server = req.url.match(regex);
 			server = server[0] ? server[0] : 'api';
 			apiProxy.web(req, res, { target: appConfig.app.servers[server] });

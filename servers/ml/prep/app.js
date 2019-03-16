@@ -1,8 +1,8 @@
 var fs = require('fs');
 var amqp = require('./modules/amqp');
 var csv = require('./modules/csv');
-var rootFilePath = '../data/ml/';
-
+var rootFilePath = '../../data/ml/';
+ 
 amqp.consume('prep', message => {
     if (message.job === 'default') {
         var filePath = rootFilePath + message.dataType + '.csv' ;

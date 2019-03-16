@@ -2,6 +2,7 @@
 
 title Run ioHomes apps and processes
 echo ioHomes apps and processes
+echo Make sure that redis and rabbitmq servers are running
 start rundb.bat
 timeout 5
 start runserver.bat "proxy server" "../servers/proxy"

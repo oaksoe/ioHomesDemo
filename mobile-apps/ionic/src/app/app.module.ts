@@ -10,6 +10,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler } from 'ionic-angular';
 import { IonicModule } from 'ionic-angular';
 
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 import { Items } from '../mocks/providers/items';
 import { 
     Settings, 
@@ -65,7 +68,8 @@ export function provideSettings(storage: Storage) {
     }),
     IonicModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
