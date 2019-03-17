@@ -48,9 +48,12 @@ var find = async (req, res) => {
     var criteria = {};
     
     if (by && by !== 'none') {
+        if (by === 'user') {
+            by = 'userID';
+        }
         criteria[by] = req.params.criteria;
     }
-
+    
     try {
         var result = await dbEntityController.find(entity, criteria);
         http.res(res, result);

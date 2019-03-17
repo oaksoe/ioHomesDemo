@@ -10,7 +10,7 @@ import { AuthService, UserApiService, ToastService, TranslatorService } from '..
     templateUrl: 'welcome.html'
 })
 export class WelcomePage {
-    private user: User;
+    public user: User;
     private loginError: string;
 
     constructor(

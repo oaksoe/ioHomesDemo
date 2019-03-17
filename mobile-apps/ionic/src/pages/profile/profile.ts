@@ -18,7 +18,7 @@ import { HousePage } from '../house/house';
 })
 export class ProfilePage implements OnInit {
 
-    private user: User;
+    public user: User;
     private updateSuccess: string;
     private updateError: string;
 

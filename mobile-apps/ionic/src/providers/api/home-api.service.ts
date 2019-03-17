@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
-import { Home } from '../../models';
+import { Home, Constants } from '../../models';
  
 @Injectable()
 export class HomeApiService {
@@ -29,9 +29,27 @@ export class HomeApiService {
             }).catch(err => Observable.throw(err));
     }
 
-    public getHomes(by: string, criteria: string): Observable<any> {
+    public getHomes(by?: string, criteria?: string): Observable<any> {
+        if (!by) {
+            by = Constants.General.NoneString;
+            criteria = by;
+        }
+
         return this.http.get('api/home/', [by, criteria])
             .map((result: any) => {
+                return result;
+            }).catch(err => Observable.throw(err));
+    }
+
+    public getHomeByUserID(userID: string): Observable<any> {
+        return this.getHomes('user', userID)
+            .map((result:any) => {
+                if (result.data && result.data.length === 1) {
+                    result.data = result.data[0];
+                } else {
+                    result.data = null;
+                }
+                
                 return result;
             }).catch(err => Observable.throw(err));
     }

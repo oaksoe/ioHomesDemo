@@ -28,7 +28,10 @@
 
       <ion-item>
         <ion-label fixed>{{ 'Gender' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="user.gender" name="gender"></ion-input>
+        <ion-select [(ngModel)]="user.gender" name="gender" multiple="false">
+          <ion-option>Male</ion-option>
+          <ion-option>Female</ion-option>
+        </ion-select>
       </ion-item>
 
       <ion-item>

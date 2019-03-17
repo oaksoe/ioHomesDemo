@@ -10,7 +10,7 @@ import { WelcomePage } from '../';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-    private user: User;
+    public user: User;
 
     private signupError: string;
 

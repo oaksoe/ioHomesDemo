@@ -12,7 +12,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>{{home}}</ion-title>
+    <ion-title>{{ 'HOME' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,11 +20,11 @@
 
 <ion-content padding>
 
-  <ion-fab right bottom>
+  <!-- <ion-fab right bottom>
     <button ion-fab color="orange" (click)="addNew()">
       <ion-icon name="add"></ion-icon>
     </button>
-  </ion-fab>
+  </ion-fab> -->
 
   <ion-row>
       <ion-item>
@@ -80,4 +80,60 @@
       </button>
   </ion-list>
 
+  <form (submit)="updateHome()" *ngIf="isHomeInfo">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'TYPE' | translate }}</ion-label>
+        <ion-select [(ngModel)]="home.type" name="type" multiple="false">
+          <ion-option [value]="Land">{{ 'LAND' | translate }}</ion-option>
+          <ion-option [value]="Apartment">{{ 'APARTMENT' | translate }}</ion-option>
+          <ion-option [value]="Condo">{{ 'CONDO' | translate }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'ADDRESS' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.address" name="address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'STREET' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.street" name="street"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'WARD' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.ward" name="ward"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'TOWNSHIP' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.township" name="township"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label fixed>{{ 'POSTCODE' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.postCode" name="postcode"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'CITY' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.city" name="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'STATE' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="home.location.state" name="state"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
+      </div>
+    </ion-list>
+  </form>
 </ion-content>

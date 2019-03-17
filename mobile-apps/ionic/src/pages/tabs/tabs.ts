@@ -19,7 +19,7 @@ export class TabsPage {
   myContainer: { user?: any } = {};
 
   tab1Title = "Home";
-  tab2Title = "Messages";
+  tab2Title = "Chats";
   tab3Title = " ";
   tab4Title = "Profile";
 
