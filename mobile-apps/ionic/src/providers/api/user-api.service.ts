@@ -37,4 +37,11 @@ export class UserApiService {
                 return result;
             }).catch(err => Observable.throw(err));
     }
+
+    public getNeighbors(homeID: string): Observable<any> {        
+        return this.http.get('api/neighbor/', [homeID])
+            .map((result: any) => {
+                return result;
+            }).catch(err => Observable.throw(err));
+    }
 }

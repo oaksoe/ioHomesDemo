@@ -3,6 +3,8 @@ import { Home } from '../../models';
  
 @Injectable()
 export class HomeService {
+    private home: Home;
+
     constructor() {}
 
     public initHome(): Home {
@@ -51,5 +53,13 @@ export class HomeService {
                 country: home.location.country
             }
         }
+    }
+
+    public setHome(home: Home) {
+        this.home = home;
+    }
+
+    public getHome(): Home {
+        return this.home;
     }
 }

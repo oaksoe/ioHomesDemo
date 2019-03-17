@@ -3,7 +3,10 @@ export { AuthService } from './auth/auth.service';
 export { TokenInterceptor } from './auth/token.interceptor';
 export { HomeApiService } from './api/home-api.service';
 export { UserApiService } from './api/user-api.service';
+export { ChatApiService } from './api/chat-api.service';
+
 export { HomeService } from './home/home.service';
+export { ChatService } from './chat/chat.service';
 
 export { Items } from '../mocks/providers/items';
 export { Settings } from './settings/settings';

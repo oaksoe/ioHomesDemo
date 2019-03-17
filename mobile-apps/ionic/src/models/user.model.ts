@@ -10,5 +10,9 @@ export interface User {
     ic: string;
     education: string;
     jobTitle: string;
-    homes: Home[];
+}
+
+export interface UserMini {
+    id: string;
+    name: string;
 }

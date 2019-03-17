@@ -16,52 +16,21 @@
 <ion-content padding>
   <div class="messages">
     <ion-list style="background-color:transparent">
-      <ion-item no-lines >
+      <ion-item no-lines *ngFor="let message of chatRoom.messages">
         <ion-avatar item-start>
           <img src="assets/userBlue.png">
         </ion-avatar>
         <ion-item class="msg" item-start>
-          <p style="font-size:15px; color: black">{{friText}}</p>
-          <h6 item-end style="font-size:10px;" class=""> 10:40 pm </h6>
+          <p style="font-size:15px; color: black">{{ message.content }}</p>
+          <h6 item-end style="font-size:10px;" class="">{{ message.sentAt }}</h6>
         </ion-item>
-      </ion-item>
-
-      <ion-item no-lines>
-        <ion-item class="myMsg" item-end>
-          <p style="font-size:15px; color: black">{{myText}}</p>
-          <h6 item-end style="font-size:10px;"> 10:40 pm </h6>
-        </ion-item>
-        <ion-avatar item-end>
-          <img src="assets/userBlue.png">
-        </ion-avatar>
-      </ion-item>
-
-      <ion-item no-lines>
-        <ion-avatar item-start>
-          <img src="assets/userBlue.png">
-        </ion-avatar>
-        <ion-item class="msg" item-start>
-          <p style="font-size:15px; color: black">{{friText}}</p>
-          <h6 item-end style="font-size:10px;"> 10:40 pm </h6>
-        </ion-item>
-      </ion-item>
-
-      <ion-item no-lines>
-        <ion-item class="myMsg" item-end>
-          <p style="font-size:15px; color: black">{{myText}}</p>
-          <h6 item-end style="font-size:10px;"> 10:40 pm </h6>
-        </ion-item>
-        <ion-avatar item-end>
-          <img src="assets/userBlue.png">
-        </ion-avatar>
-      </ion-item>
+      </ion-item>      
     </ion-list>
-
   </div>
 
   <ion-footer>
     <ion-item>
-      <ion-input type="text" placeholder="Enter message...."></ion-input>
+      <ion-input type="text" [(ngModel)]="currentMessage" placeholder="Enter message ..."></ion-input>
       <button item-end (click)="sendMessage()">
         <ion-icon name="send"></ion-icon>
       </button>

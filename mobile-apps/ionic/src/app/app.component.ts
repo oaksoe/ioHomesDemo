@@ -34,9 +34,9 @@ export class MyApp {
   selectedIndex: number;
 
   pages: any[] = [
-    { title: 'Home', component: 'HomePage' },
-    { title: 'Chats', component: 'ChatsPage' },
+    { title: 'Home', component: 'HomePage' },    
     { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Chats', component: 'ChatsPage' },
     { title: 'Profile', component: 'ProfilePage'}
   ]
 

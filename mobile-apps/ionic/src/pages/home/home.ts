@@ -48,6 +48,7 @@ export class HomePage {
                 if (result.status === Constants.Api.ServerResponseCodes.SUCCESS) {
                     if (result.data) {
                         this.home = this.homeService.updateHome(result.data);
+                        this.homeService.setHome(this.home);
                     }
                 } else {
                     this.toastService.show(this.fetchHomeError);
@@ -95,6 +96,7 @@ export class HomePage {
         } else {
             this.homeApiService.updateHome(this.home).subscribe(result => {
                 if (result.status === Constants.Api.ServerResponseCodes.SUCCESS) {
+                    this.homeService.setHome(this.home);
                     this.toastService.show(this.translateService.instance('UPDATE_HOME_SUCCESS'));
                 } else {
                     this.toastService.show(this.updateHomeError);
@@ -112,6 +114,7 @@ export class HomePage {
         this.homeApiService.createHome(this.home).subscribe(result => {
             if (result.status === Constants.Api.ServerResponseCodes.SUCCESS) {
                 this.home.id = result.data.id;
+                this.homeService.setHome(this.home);
                 this.toastService.show(this.translateService.instance('UPDATE_HOME_SUCCESS'));
             } else {
                 this.toastService.show(this.updateHomeError);

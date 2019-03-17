@@ -22,9 +22,11 @@ import {
     AuthService,
     UserApiService,
     HomeApiService,
+    ChatApiService,
     ToastService,
     TranslatorService,
     HomeService,
+    ChatService,
 } from '../providers';
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
@@ -88,9 +90,11 @@ export function provideSettings(storage: Storage) {
     AuthService,
     UserApiService,
     HomeApiService,
+    ChatApiService,
     ToastService,
     TranslatorService,
     HomeService,
+    ChatService,
     Items,
     User,
     Camera,

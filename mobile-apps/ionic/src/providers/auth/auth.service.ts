@@ -24,7 +24,6 @@ export class AuthService {
             ic: '',
             education: '',
             jobTitle: '',
-            homes: [],
         }
     }
 
@@ -48,7 +47,6 @@ export class AuthService {
             ic: user.ic,
             education: user.education,
             jobTitle: user.jobTitle,
-            homes: user.homes
         };
     }
 

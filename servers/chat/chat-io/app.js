@@ -17,9 +17,9 @@ io.on('connection', socket => {
         console.log('socket disconnected');   
     });
 
-    socket.on('ionic', () => { 
-        console.log('from ionic app');    
-    });
+    // socket.on('ionic', () => { 
+    //     console.log('from ionic app');    
+    // });
 });
 
 server.listen(3000);

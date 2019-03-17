@@ -55,6 +55,9 @@
   "FETCH_HOME_ERROR": "Unable to fetch home info.",
   "UPDATE_HOME_ERROR": "Unable to update home info.",
   "UPDATE_HOME_SUCCESS": "Home info updated.",
+  "FETCH_NEIGHBORS_ERROR": "Unable to fetch neighbors",
+  "SEND_MESSAGE_ERROR": "Unable to send message",
+  "FETCH_MESSAGES_ERROR": "Unable to fetch chat messages",
 
   "LIST_MASTER_TITLE": "Items",
 

@@ -24,11 +24,11 @@
 
     <ion-item>
       <ion-list>
-        <ion-item *ngFor="let user of users" (click)="openChat(user.id)">
+        <ion-item *ngFor="let neighbor of neighbors" (click)="openChat(neighbor.id)">
           <ion-avatar item-start>
             <img src="assets/userBlue.png">
           </ion-avatar>
-          <h3>{{user.username}}</h3>
+          <h3>{{neighbor.name}}</h3>
         </ion-item>       
       </ion-list>
     </ion-item>
