@@ -19,14 +19,13 @@ export class TabsPage {
   myContainer: { user?: any } = {};
 
   tab1Title = "Home";
-  tab2Title = "Chats";
-  tab3Title = " ";
+  tab2Title = "Posts";
+  tab3Title = "Chats";
   tab4Title = "Profile";
 
   constructor(public navCtrl: NavController, public translateService: TranslateService) {
-    translateService.get(['TAB3_TITLE']).subscribe(values => {
-      this.tab3Title = values['TAB3_TITLE'];
-      
-    });
+    // translateService.get(['TAB3_TITLE']).subscribe(values => {
+    //     this.tab3Title = values['TAB3_TITLE'];      
+    // });
   }
 }

@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PostsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>Posts</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-textarea [(ngModel)]="post.content" placeholder="What's up in your neighborhood?"></ion-textarea>
+        </ion-item>
+        <button ion-button (click)="addPost()" style="float:right;">{{ 'POST_BUTTON' | translate }}</button>
+      </ion-list>     
+  
+      <ion-item-divider color="light">
+        <ion-icon name="search" size="small" item-start></ion-icon>
+        <ion-input placeholder="Search"></ion-input>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let post of posts">
+            <ion-avatar item-start>
+              <img src="assets/userBlue.png">
+            </ion-avatar>
+            <ion-label>{{ post.content }}</ion-label>
+          </ion-item>       
+        </ion-list>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
