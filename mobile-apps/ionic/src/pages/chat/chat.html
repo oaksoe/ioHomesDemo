@@ -17,12 +17,17 @@
   <div class="messages">
     <ion-list style="background-color:transparent">
       <ion-item no-lines *ngFor="let message of chatRoom.messages">
-        <ion-avatar item-start>
+        <ion-avatar item-start *ngIf="message.sender.id !== sender.id">
           <img src="assets/userBlue.png">
         </ion-avatar>
-        <ion-item class="msg" item-start>
+        <ion-item class="msg" item-start *ngIf="message.sender.id !== sender.id">
           <p style="font-size:15px; color: black">{{ message.content }}</p>
-          <h6 item-end style="font-size:10px;" class="">{{ message.sentAt }}</h6>
+          <!-- <h6 item-end style="font-size:10px;" class="">{{ message.sentAt }}</h6> -->
+        </ion-item>
+      
+        <ion-item class="msg" item-end *ngIf="message.sender.id === sender.id">
+          <p style="font-size:15px; color: black">{{ message.content }}</p>
+          <!-- <h6 item-end style="font-size:10px;" class="">{{ message.sentAt }}</h6> -->
         </ion-item>
       </ion-item>      
     </ion-list>

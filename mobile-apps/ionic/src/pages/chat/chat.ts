@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatRoom, ChatMessage, Constants, UserMini } from '../../models';
-import { ToastService, TranslatorService, ChatApiService, AuthService } from '../../providers';
+import { ToastService, TranslatorService, ChatApiService, ChatService, AuthService } from '../../providers';
 
 /**
  * Generated class for the ChatPage page.
@@ -29,6 +29,7 @@ export class ChatPage {
         private toastService: ToastService,
         private translateService: TranslatorService,
         private chatApiService: ChatApiService,
+        private chatService: ChatService,
         private authService: AuthService,
     ) {
         const currentUser = this.authService.getLoggedInUser();
@@ -41,26 +42,8 @@ export class ChatPage {
         this.sendMessageError = this.translateService.instance('SEND_MESSAGE_ERROR');
 
         this.initChatRoom();
-        this.chatApiService.getMessages(this.chatRoom.id).subscribe(result => {
-                if (result.status === Constants.Api.ServerResponseCodes.SUCCESS) {
-                    const messages = result.data;
-                    messages.forEach(message => {
-                        this.chatRoom.messages.push({
-                            content: message.message,
-                            sender: {
-                                id: message.sender,
-                                name: ''
-                            },
-                            sentAt: '10:40 pm'
-                        });
-                    });
-                } else {
-                    this.toastService.show(this.fetchMessagesError);
-                }
-          }, err => {
-              console.log('error when fetching chat messages: ', err);
-              this.toastService.show(this.fetchMessagesError);
-          });
+        this.subscribeToChatSocket();
+        this.fetchMessages();
     }
 
     public ionViewDidLoad() {
@@ -82,13 +65,51 @@ export class ChatPage {
 
     private initChatRoom() {
         this.chatRoom = {
-            id: 'chatXYZ',
+            id: 'chatABC',
             participants: [],
             name: '',
             type: 'private',
             createdAt: '',
             messages: []
         };
+    }
+
+    private subscribeToChatSocket() {
+        this.chatService.getChatSocketObservable().subscribe(result => {
+            if (result) {
+                this.chatRoom.messages.push({
+                    content: result.message.data.message,
+                    sender: {
+                        id: result.message.data.sender,
+                        name: ''
+                    },
+                    sentAt: ''
+                });
+            }
+        });
+    }
+
+    private fetchMessages() {
+        this.chatApiService.getMessages(this.chatRoom.id).subscribe(result => {
+            if (result.status === Constants.Api.ServerResponseCodes.SUCCESS) {
+                const messages = result.data;
+                messages.forEach(message => {
+                    this.chatRoom.messages.push({
+                        content: message.message,
+                        sender: {
+                            id: message.sender,
+                            name: ''
+                        },
+                        sentAt: ''
+                    });
+                });
+            } else {
+                this.toastService.show(this.fetchMessagesError);
+            }
+        }, err => {
+            console.log('error when fetching chat messages: ', err);
+            this.toastService.show(this.fetchMessagesError);
+        });
     }
 
 }
