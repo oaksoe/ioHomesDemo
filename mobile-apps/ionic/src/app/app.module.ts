@@ -10,6 +10,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler } from 'ionic-angular';
 import { IonicModule } from 'ionic-angular';
 
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 import { Items } from '../mocks/providers/items';
 import { 
     Settings, 
@@ -19,6 +22,13 @@ import {
     AuthService,
     UserApiService,
     HomeApiService,
+    ChatApiService,
+    ToastService,
+    TranslatorService,
+    HomeService,
+    ChatService,
+    PostApiService,
+    PostService,
 } from '../providers';
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
@@ -63,7 +73,8 @@ export function provideSettings(storage: Storage) {
     }),
     IonicModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -81,6 +92,13 @@ export function provideSettings(storage: Storage) {
     AuthService,
     UserApiService,
     HomeApiService,
+    ChatApiService,
+    PostApiService,
+    ToastService,
+    TranslatorService,
+    HomeService,
+    ChatService,
+    PostService,
     Items,
     User,
     Camera,

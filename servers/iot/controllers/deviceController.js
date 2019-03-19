@@ -11,3 +11,13 @@ exports.toggle = async (device) => {
         await Promise.reject(new Error(status.DEVICE_ERROR.message));
     }
 }
+
+exports.getToggleState = async (deviceType, deviceName) => {
+    try {
+        if (deviceType === constants.DEVICES.PLUG) {
+            return await tplink.getToggleState(deviceName || 'ioHomes smart plug');
+        }
+    } catch(err) {
+        await Promise.reject(new Error(status.DEVICE_ERROR.message));
+    }
+}

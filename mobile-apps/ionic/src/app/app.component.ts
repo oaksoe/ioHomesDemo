@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform, NavParams } from 'ionic-angular';
 
-import { FirstRunPage } from '../pages';
+import { WelcomePage } from '../pages';
 import { Settings } from '../providers';
 
 @Component({
@@ -27,16 +27,16 @@ import { Settings } from '../providers';
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+  rootPage = WelcomePage;
 
   @ViewChild(Nav) nav: Nav;
 
   selectedIndex: number;
 
   pages: any[] = [
-    { title: 'Home', component: 'HomePage' },
-    { title: 'Messages', component: 'MessagingPage' },
-    { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Home', component: 'HomePage' },    
+    { title: 'Posts', component: 'PostsPage' },
+    { title: 'Chats', component: 'ChatsPage' },
     { title: 'Profile', component: 'ProfilePage'}
   ]
 

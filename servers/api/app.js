@@ -30,8 +30,12 @@ app.use(cors(http.corsOptions()));
 // routes
 var userRoute = require('./routes/user');
 var homeRoute = require('./routes/home');
+var neighborRoute = require('./routes/neighbor');
+var postRoute = require('./routes/post');
 app.use('/v1/ioh/api/user/', userRoute);
 app.use('/v1/ioh/api/home/', homeRoute);
+app.use('/v1/ioh/api/neighbor/', neighborRoute);
+app.use('/v1/ioh/api/post/', postRoute);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

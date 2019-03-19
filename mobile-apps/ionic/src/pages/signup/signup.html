@@ -8,31 +8,40 @@
 
 
 <ion-content>
-  <form (submit)="doSignup()">
+  <form (submit)="signup()">
     <ion-list>
 
       <ion-item>
         <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+        <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
       </ion-item>
-
-      <!--
-      Want to add a Username? Here you go:
-
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
 
       <ion-item>
         <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'Gender' | translate }}</ion-label>
+        <ion-select [(ngModel)]="user.gender" name="gender" multiple="false">
+          <ion-option>Male</ion-option>
+          <ion-option>Female</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'Date of Birth' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="user.dob" name="dob"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'IC' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="user.ic" name="ic"></ion-input>
       </ion-item>
 
       <div padding>

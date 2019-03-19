@@ -28,3 +28,5 @@ var home = {
 # api server apis
 # ---------------
  
+# to get user_home
+db.user.aggregate([{$lookup:{from:"home",localField:"id",foreignField:"userID",as:"user_home"}}])

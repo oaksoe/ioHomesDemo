@@ -1,6 +1,12 @@
-export const ServerResponseCodes = {
-    SUCCESS: 'SUCCESS',
-    ERROR: 'ERROR'
-};
+export namespace Constants {
+    export namespace General {
+        export const NoneString = 'none';
+    }
 
-export const NoneString = 'None';
+    export namespace Api {
+        export namespace ServerResponseCodes {
+            export const SUCCESS = 'SUCCESS';
+            export const ERROR = 'ERROR';
+        }
+    }    
+};

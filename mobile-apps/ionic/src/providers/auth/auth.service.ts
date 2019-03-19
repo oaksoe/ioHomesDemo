@@ -1,13 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from '../api/http.service';
-import { User, ServerResponseCodes } from '../../models';
+import { User, Constants } from '../../models';
  
 @Injectable()
 export class AuthService {
     private user: User;
 
-    constructor(private http: HttpService<any>) {
+    constructor(
+        private http: HttpService<any>
+    ) {
+    }
+
+    public initUser(): User {
+        return {
+            id: null,
+            email: '',
+            phone: '',
+            password: '',
+            name: '',
+            gender: '',
+            dob: '',
+            ic: '',
+            education: '',
+            jobTitle: '',
+        }
     }
 
     public getToken(): string {
@@ -15,7 +32,22 @@ export class AuthService {
     }
     
     public getLoggedInUser(): User {
-        return this.user;
+        return this.user || this.initUser();
+    }
+
+    public setLoggedInUser(user: User) {
+        this.user = {
+            id: user.id,
+            email: user.email,
+            phone: user.phone,
+            password: '',
+            name: user.name,
+            gender: user.gender,
+            dob: user.dob,
+            ic: user.ic,
+            education: user.education,
+            jobTitle: user.jobTitle,
+        };
     }
 
     public isAuthenticated(): boolean {
@@ -24,19 +56,25 @@ export class AuthService {
         //check token here
         return true;
     }
+
+    public register(user: User): Observable<any> {
+        return this.http.post('register/', user)
+            .map((result: any) => {
+                return result;
+            }).catch(err => Observable.throw(err));
+    }
     
-    public login(user: User) {
-        this.http.post('/auth/login/', { email: user.email, password: user.password })
-            .subscribe((result: any) => {
-                if (result.status === ServerResponseCodes.SUCCESS) {
-                    if (result.data && result.data.credentials) {
-                        this.setToken(result.data.credentials);
-                        this.setUser(result.data);
-                    } else {
-                        console.log('Error at login. ', result.error);
-                    }
-                }
-            });
+    public login(user: User): Observable<any> {
+        return this.http.post('login/', { email: user.email, password: user.password })
+            .map((result: any) => {
+                if (result.status === Constants.Api.ServerResponseCodes.SUCCESS
+                    && result.data && result.data.token) {
+                    this.setToken(result.data.token);
+                    result.data.token = '';
+                }                
+
+                return result;
+            }).catch(err => Observable.throw(err));
     }
 
     public logout() {
@@ -45,14 +83,6 @@ export class AuthService {
 
     private setToken(value: string) {
         localStorage.setItem('token', value);
-    }
-
-    private setUser(user: User) {
-        if (user.password) {
-            user.password = '';
-        }
-        
-        this.user = user;
     }
 
     private removeToken() {

@@ -3,6 +3,9 @@ export interface Home {
     userID: string;
     name: string;
     type: string;
+    isOwner: boolean;
+    isStaying: boolean;
+    isAdmin: boolean;
     location: Location;
 }
 
@@ -13,6 +16,7 @@ export interface Location {
     street: string;
     ward: string;
     township: string;
+    postCode: string;
     city: string;
     state: string;
     country: string;

@@ -14,6 +14,19 @@ var toggleDevice = async (req, res) => {
     }
 }
 
+var getDeviceToggleState = async (req, res) => {
+    var deviceType = req.params['type'];
+    var deviceName = req.params['name'];
+
+    try {
+        var state = await deviceController.getToggleState(deviceType, deviceName);
+        http.res(res, {state: state});
+    } catch(err) {
+        http.err(res, err);
+    }
+}
+
 router.post('/toggle', toggleDevice);
+router.get('/toggle/state/:type/:name', getDeviceToggleState);
 
 module.exports = router;

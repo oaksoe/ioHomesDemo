@@ -17,7 +17,7 @@
                 "api": "http://localhost:8002",
                 "iot": "http://localhost:8003",
                 "sns": "http://localhost:8004",
-                "chat": "http://localhost:8005"
+                "chat": "http://localhost:8010"
             }
         }
     },
@@ -39,7 +39,7 @@
                 "api": "http://0.0.0.0:8002",
                 "iot": "http://0.0.0.0:8003",
                 "sns": "http://0.0.0.0:8004",
-                "chat": "http://0.0.0.0:8005"
+                "chat": "http://0.0.0.0:8010"
             }
         }
     }

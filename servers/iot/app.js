@@ -24,8 +24,6 @@ http.init(appConfig.app.http);
 
 var tplink = require('./modules/tplink');
 tplink.login();
-console.log(tplink.getDevices());
-tplink.initDevices();
 
 // set cors
 app.use(cors(http.corsOptions()));
