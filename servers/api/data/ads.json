@@ -1,0 +1,13 @@
+[
+    {
+        "category": "F&B",
+        "title": "It's An Eggstra Shiok Tuesday!",
+        "terms" : "Subcharge applies for following crust(Cheese Brust, Cheddar and Mozzaralla), Limited delivery areas only and any purchase above RM20",
+        "description" : "Get Your Favorite Personal Pizzas From RM3.70* Only! Try Our New Egg-ceptional Eggstra Shiok Personal Pizzas For RM6.70 Only. Get Them Today!",
+        "price": "3.70",
+        "image": "https://s3-ap-southeast-1.amazonaws.com/ioh-aws-hackathon/dominosmy_promothumbnail_steggstrashiok.jpg",
+        "expiry": "2019-12-29 08:37:45.404",
+        "is_active": true,
+        "created_at": "2018-12-29 08:37:45.404"
+    }
+]
