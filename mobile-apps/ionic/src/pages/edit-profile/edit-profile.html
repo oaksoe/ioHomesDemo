@@ -1,0 +1,72 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only  (click)="closeModal()">
+           <ion-icon name="arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (submit)="update()">
+    <ion-list lines="inset">
+
+      <ion-item-divider color="light">
+          <ion-label fixed>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+        </ion-item-divider>
+
+      <ion-item-divider color="light">
+        <ion-label fixed>Gender</ion-label>
+        <ion-select [(ngModel)]="user.gender" name="gender" multiple="false">
+          <ion-option [value]="male">Male</ion-option>
+          <ion-option [value]="female">Female</ion-option>
+        </ion-select>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+          <ion-label fixed>Date of Birth</ion-label>
+        <ion-input type="text" [(ngModel)]="user.dob" name="dob"></ion-input>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+          <ion-label fixed>IC</ion-label>
+        <ion-input type="text" [(ngModel)]="user.ic" name="ic"></ion-input>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+          <ion-label fixed>Phone</ion-label>
+        <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+          <ion-label fixed>Education</ion-label>
+        <ion-input type="text" [(ngModel)]="user.education" name="education"></ion-input>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+          <ion-label fixed>Job Title</ion-label>
+        <ion-input type="text" [(ngModel)]="user.jobTitle" name="jobTitle"></ion-input>
+      </ion-item-divider>
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
+    </div>
+
+  </form>
+
+</ion-content>

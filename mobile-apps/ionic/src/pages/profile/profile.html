@@ -17,81 +17,75 @@
 
 
 <ion-content padding>
-  <ion-card>
-    <div class="bg-image">
-      <div class="header-content">
+  <div class="bg-image">
+    <div class="header-content">
       <ion-img style="
           height: 100px !important;
           width: 100px !important;
           margin-top: 40px;
           position: relative;
           background: none !important;
-          background-color :none !important;"
-        src="assets/ava.png" class="round-image"></ion-img>
+          background-color :none !important;" src="assets/ava.png" class="round-image"></ion-img>
       <h1>{{ user.name }}</h1>
-      </div>
     </div>
+  </div>
 
-    <form (submit)="update()">
-      <ion-list lines="inset">
-          <ion-item-divider color="light">
-            <ion-icon name="mail" item-start></ion-icon>
-            <ion-label>Email</ion-label>
-            <b item-end class="user-detail">{{user.email}}</b>
-          </ion-item-divider>     
+  <form>
 
-          <ion-item-divider color="light">
-            <ion-icon name="transgender" item-start></ion-icon>
-            <ion-label>Gender</ion-label>
-            <b item-end class="user-detail">{{user.gender}}</b>
-          </ion-item-divider>
+    <ion-list lines="inset">
+      <ion-item-divider color="light">
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label>Email</ion-label>
+        <b item-end class="user-detail">{{user.email}}</b>
+      </ion-item-divider>
 
-          <ion-item-divider color="light">
-            <ion-icon name="calendar" item-start></ion-icon>
-            <ion-label>Date of Birth</ion-label>
-            <b item-end class="user-detail">{{user.dob}}</b>
-          </ion-item-divider>
+      <ion-item-divider color="light">
+        <ion-icon name="transgender" item-start></ion-icon>
+        <ion-label>Gender</ion-label>
+        <b item-end class="user-detail">{{user.gender}}</b>
+      </ion-item-divider>
 
-          <ion-item-divider color="light">
-            <ion-icon name="card" item-start></ion-icon>
-            <ion-label>IC</ion-label>
-            <b item-end class="user-detail">{{user.ic}}</b>
-          </ion-item-divider>
+      <ion-item-divider color="light">
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label>Date of Birth</ion-label>
+        <b item-end class="user-detail">{{user.dob}}</b>
+      </ion-item-divider>
 
-          <ion-item-divider color="light">
-            <ion-icon name="call" item-start></ion-icon>
-            <ion-label>Phone</ion-label>
-            <b item-end class="user-detail">
-              <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>
-            </b>
-          </ion-item-divider>
+      <ion-item-divider color="light">
+        <ion-icon name="card" item-start></ion-icon>
+        <ion-label>IC</ion-label>
+        <b item-end class="user-detail">{{user.ic}}</b>
+      </ion-item-divider>
 
-          <ion-item-divider color="light">
-            <ion-icon name="school" item-start></ion-icon>
-            <ion-label>Highest Education</ion-label>
-            <b item-end class="user-detail">
-              <ion-input type="text" [(ngModel)]="user.education" name="education"></ion-input>
-            </b>
-          </ion-item-divider>
-          
-          <ion-item-divider color="light">
-            <ion-icon name="paper" item-start></ion-icon>
-            <ion-label>Job Title</ion-label>
-            <b item-end class="user-detail">
-              <ion-input type="text" [(ngModel)]="user.jobTitle" name="jobTitle"></ion-input>
-            </b>
-          </ion-item-divider>
-      </ion-list>
+      <ion-item-divider color="light">
+        <ion-icon name="call" item-start></ion-icon>
+        <ion-label>Phone</ion-label>
+        <b item-end class="user-detail">{{user.phone}}</b>
+      </ion-item-divider>
 
-      <div padding>
-        <button ion-button color="primary" block>{{ 'UPDATE_BUTTON' | translate }}</button>
-      </div>
-      <!--       
+      <ion-item-divider color="light">
+        <ion-icon name="school" item-start></ion-icon>
+        <ion-label>Highest Education</ion-label>
+        <b item-end class="user-detail">{{user.education}}</b>
+      </ion-item-divider>
+
+      <ion-item-divider color="light">
+        <ion-icon name="paper" item-start></ion-icon>
+        <ion-label>Job Title</ion-label>
+        <b item-end class="user-detail">{{user.jobTitle}}</b>
+      </ion-item-divider>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block (click)="editProfile()">Edit Profile</button>
+    </div>
+    <!--       
         <button ion-button full (click)="goToHouse()">
           <ion-icon name="home" item-start></ion-icon>
             Houses
           </button> -->
-      
-    </form>
-  </ion-card>
+
+  </form>
+
 </ion-content>

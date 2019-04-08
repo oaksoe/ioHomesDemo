@@ -33,6 +33,7 @@ import {
 import { MyApp } from './app.component';
 import { PopupDialogPage } from '../pages/popup-dialog/popup-dialog';
 import { DeviceCreatePage } from '../pages/device-create/device-create';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -59,7 +60,8 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     PopupDialogPage,
-    DeviceCreatePage
+    DeviceCreatePage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,7 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     DeviceCreatePage,
     MyApp,
+    EditProfilePage,
     PopupDialogPage
   ],
   providers: [
