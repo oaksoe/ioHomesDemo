@@ -1,4 +1,7 @@
 IoHomes
+
+This demo app is listed among top 5 in AWS Hackdays Malaysia 2019.
+
 ioHomes App is a mobile-based social network application to bring homes in the neighborhood together. It’s targeted at developing countries like Myanmar where the spirit of neighborhood is high, but it is gradually getting vague due to struggling lifestyle of people. It also aims to solve issues such as security, disaster (like fire, which is quite common), energy insufficiency and shortage.
 In the country like Myanmar, where mobile penetration is quite high despite the lack of infrastructure and energy, this is what ioHomes can take advantage of as a mobile app, to bring benefits to the neighborhoods across the country.
 ioHomes focuses on 3 aspects:
